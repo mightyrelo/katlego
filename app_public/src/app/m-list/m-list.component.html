@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12" [ngSwitch]="isLoggedIn()">
+    <small>
+      <button (click)="openForm=true" class="btn-primary" *ngSwitchCase="true">add M </button>
+      <a routerLink="/login"><button class="btn-primary" *ngSwitchDefault >log in to add M </button>
+      </a>
+    </small>
+  </div>
+  <div *ngIf="openForm" class="col-12 col-md-8">
+    <form (ngSubmit)="onMSubmit()" >
+      <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+        {{errorInForm}}
+      </div>
+      <div class="form-group">
+         <label for="a1">a1</label>
+         <input class="form-control" id="a1" name="a1" type="text" placeholder="" [(ngModel)]="formM.a1">
+      </div> 
+      <div class="form-group">
+         <label for="a2">a2</label>
+         <input class="form-control" id="a2" name="a2" placeholder="" [(ngModel)]="formM.a2">
+      </div>
+      <div class="form-group">
+        <label for="a3">a3</label>
+        <input class="form-control" id="a3" name="a3" type="text" placeholder="" [(ngModel)]="formM.a3">
+     </div> 
+     <div class="form-group">
+      <label for="a4">a4</label>
+      <input class="form-control" type="text" id="a4" name="a4" [(ngModel)]="formM.a4">
+     </div>
+     <div class="form-group">
+      <label for="a5">a5</label>
+      <input class="form-control" type="text" id="a5" name="a5" [(ngModel)]="formM.a5">
+     </div>
+      <div class="form-group">
+        <label for="facilities">Facilities</label>
+        <input class="form-control" id="facilities" name="facilities" type="text" placeholder="" [(ngModel)]="formM.facilities">
+     </div> 
+      <button type="submit" role="button" class="btn-primary">Add</button> 
+      <button (click)="resetAndHideMForm()" type="button" role="button" class="btn-primary">Cancel</button> 
+    </form>     
+  </div>
+</div> 
+<div *ngFor="let m of ms" class="card">
+   <div class="card-block"> 
+   </div>
+   <h4> <a routerLink="/ms/{{m._id}}">{{m.a1}}</a>
+    <small>&nbsp;
+      <i class="fa{{m.a2 < 1 ? 'r':'s' }} fa-star"></i>
+      <i class="fa{{m.a2 < 2 ? 'r':'s' }} fa-star"></i>
+      <i class="fa{{m.a2 < 3 ? 'r':'s' }} fa-star"></i>
+      <i class="fa{{m.a2 < 4 ? 'r':'s' }} fa-star"></i>
+      <i class="fa{{m.a2 < 5 ? 'r':'s' }} fa-star"></i>
+      <a *ngIf="isLoggedIn()" style="font-size: 0.8em" class="btn float-right" (click)="flagged(m._id)">delete</a>
+      <div *ngIf="isFlagged(m._id)">
+        <button style="font-size: 0.7em" (click)="setFlagOff(m._id)" class="btn btn-primary float-right">cancel</button>
+        <button style="font-size: 0.7em" (click)="deleteM(m._id)" class="btn btn-primary float-right">are you sure?</button>
+      </div>
+    </small>
+  </h4>
+  <small><span class="badge badge-pill badge-default float-right">{{m.a3 | appendS}}</span></small>
+  <p class="address">{{m.a5}}</p>
+  <div class="facilities">
+    <span *ngFor="let facility of m.facilities" class="badge badge-warning">{{facility}}</span>
+  </div>
+  <small><span class="badge badge-pill badge-default float-right">{{m.user}}</span></small>
+</div>

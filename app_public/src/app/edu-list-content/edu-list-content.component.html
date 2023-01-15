@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12" >
+    <small>
+      <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">add Education </button>
+      <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to add Education </button>
+      </a>
+    </small>
+  </div>
+  <div *ngIf="openForm" class="col-12 col-md-8">
+    <form (ngSubmit)="onEducationSubmit()" >
+      <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+        {{errorInForm}}
+      </div> 
+      <div class="form-group">
+        <label for="institution">Institution</label>
+        <input class="form-control" id="institution" name="ins" type="text" placeholder="" [(ngModel)]="formEdus.institution">
+     </div> 
+      <div class="form-group">
+        <label for="qualification">Qualification</label>
+        <input class="form-control" id="qualification" name="qualification" type="text" placeholder="" [(ngModel)]="formEdus.qualification">
+     </div> 
+     <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input class="form-control" id="startDate" name="startDate" type="text" placeholder="" [(ngModel)]="formEdus.startDate">
+     </div> 
+     <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input class="form-control" id="endDate" name="endDate" type="text" placeholder="" [(ngModel)]="formEdus.endDate">
+     </div> 
+     <div class="form-group">
+      <label for="interests">Interests</label>
+      <input class="form-control" type="text" id="interests" name="interests" [(ngModel)]="formEdus.interests">
+     </div> 
+      <button type="submit" role="button" class="btn-primary">add</button> 
+      <button (click)="resetAndHideEducationForm()" type="button" role="button" class="btn-primary">cancel</button> 
+    </form>     
+  </div>
+</div> 
+<div *ngFor="let edu of educations" class="card">
+   <div class="card-block"> 
+   </div>
+   <h4> <a routerLink="/educations/{{edu._id}}">{{edu.institution}}</a>
+    <small>&nbsp;
+      <a *ngIf="isLoggedIn()" (click)="setFlag(edu._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <div *ngIf="isFlagged(edu._id)">
+        <button (click)="setOffFlag(edu._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
+        <button (click)="deletePersonals(edu._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
+      </div>
+    </small>
+  </h4>
+  <p><b>Qualification: </b><span class="badge badge-pill badge-default"> {{edu.qualification}}</span></p>
+  <p class="address"><b>Start Date: </b> {{edu.startDate}}</p>
+  <p class="address"><b>End Date: </b> {{edu.endDate}}</p>
+  <div class="facilities">
+    <p><b>Interests: </b><span *ngFor="let interest of edu.interests" class="badge badge-warning">{{interest}}</span></p>
+  </div>
+</div>

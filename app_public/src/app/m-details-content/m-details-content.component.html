@@ -1,0 +1,81 @@
+<div class="col-12 col-lg-9">
+  <div class="row"> <div class="col-12 col-md-6">
+    <p class="rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"> </i>
+      <i class="fas fa-star"> </i>
+      <i class="fas fa-star"> </i>
+      <i class="far fa-star"> </i>
+    </p>
+    <p>{{dbM.a1}}</p>
+    <div class="card card-primary">
+      <div class="card-block">
+        <h2 class="card-title">Duration </h2>
+        <p class="card-text">{{dbM.a3}}</p>
+        <p class="card-text">{{dbM.a4}}</p>
+        <p class="card-text">{{dbM.a5}}</p>
+       </div>
+     </div>
+     <div class="card card-primary">
+        <div class="card-block">
+          <h2 class="card-title">Facilities </h2>
+          <span *ngFor="let facility of dbM.facilities" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{facility}} </span>
+          &nbsp;
+         </div></div>
+       </div>
+       <div class="col-12 col-md-6 location-map">
+          <div class="card card-primary">
+            <div class="card-block">
+              <h2 class="card-title">LA Pictures </h2>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+          <div class="col-12">
+            <div class="card-primary review-card">
+              <div class="card-block">
+                <h2 class="card-title">SMs </h2>
+                <div class="row sm-button" [ngSwitch]="isLoggedIn()">
+                  <small>
+                    <button (click)="displayForm=true" class="btn-primary float-right" *ngSwitchCase="true">add SM</button>
+                    <a routerLink="/login"><button class="btn-primary float-right" *ngSwitchDefault>log in to add SM</button></a>
+                  </small>
+                </div>
+                <div *ngIf="displayForm" class="col-12 col-md-8">
+                  <form (ngSubmit)="onSMSubmit()" method="post" role="form">
+                    <div *ngIf="formError" class="alert alert-danger">
+                      {{formError}}</div>
+                    <div class="form-group">
+                       <label for="b1">b1</label>
+                       <input class="form-control" id="b1" name="b1" type="text" placeholder="" [(ngModel)]="formSM.b1">
+                    </div> 
+                    <div class="form-group">
+                       <label for="b2">b2</label>
+                       <input class="form-control" id="b2" name="b2" type="text" placeholder="" [(ngModel)]="formSM.b2">
+                    </div> 
+                    <div class="form-group">
+                    </div>
+                    <button  type="submit" role="button" class="btn-primary sm-button">add</button> 
+                    <button (click)="resetAndHideSMForm()" type="button" role="button" class="btn-primary sm-button">cancel</button> 
+                  </form>     
+                </div>
+                <div *ngFor="let sm of dbM.sms | mostRecentFirst" class="row review">
+                  <div class="col-12 no-gutters review-header">
+                    <small class="reviewTimestamp"> {{sm.b3 | date : 'd MMMM yyyy HH:MM:SS'}} ----&gt;   </small>
+                    <small class="reviewTimestamp">{{sm.b2}} --------&gt;</small>
+                    <small class="reviewTimestamp">{{sm.user}}</small>
+                    <a *ngIf="isLoggedIn()" style="font-size: 0.8em" class="btn float-right" (click)="flagged(dbM._id, sm._id)">delete</a>
+                    <div *ngIf="isFlagged(dbM._id, sm._id)">
+                      <button style="font-size: 0.7em" (click)="setFlagOff(dbM._id, sm._id)" class="btn btn-primary float-right">cancel</button>
+                      <button style="font-size: 0.7em" (click)="deleteSM(dbM._id, sm._id)" class="btn btn-primary float-right">are you sure?</button>
+                    </div>                    
+                   </div>
+                   <div class="col-12">
+                      <p>{{sm.b1}}</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>

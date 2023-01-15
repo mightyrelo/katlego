@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-12" >
+    <small>
+      <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">add Project </button>
+      <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to add Project </button>
+      </a>
+    </small>
+  </div>
+  <div *ngIf="openForm" class="col-12 col-md-8">
+    <form (ngSubmit)="onProjectSubmit()" >
+      <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+        {{errorInForm}}
+      </div> 
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" id="name" name="ins" type="text" placeholder="" [(ngModel)]="formProjects.name">
+     </div> 
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" id="description" name="description" type="text" placeholder="" [(ngModel)]="formProjects.description">
+     </div> 
+    <div class="form-group">
+        <label for="term">Term</label>
+        <input class="form-control" id="term" name="term" type="text" placeholder="" [(ngModel)]="formProjects.term">
+     </div> 
+    <div class="form-group">
+        <label for="language">Language</label>
+        <input class="form-control" id="language" name="language" type="text" placeholder="" [(ngModel)]="formProjects.language">
+     </div> 
+     <div class="form-group">
+      <label for="concepts">Concepts</label>
+      <input class="form-control" type="text" id="concepts" name="concepts" [(ngModel)]="formProjects.concepts">
+     </div> 
+     <div class="form-group">
+      <label for="tools">Tools</label>
+      <input class="form-control" type="text" id="tools" name="tools" [(ngModel)]="formProjects.tools">
+     </div> 
+      <button type="submit" role="button" class="btn-primary">add</button> 
+      <button (click)="resetAndHideProjectForm()" type="button" role="button" class="btn-primary">cancel</button> 
+    </form>     
+  </div>
+</div> 
+<div *ngFor="let project of projects" class="card">
+   <div class="card-block"> 
+   </div>
+   <h4> <a routerLink="/projects/{{project._id}}">{{project.name}}</a>
+    <small>&nbsp;
+      <a *ngIf="isLoggedIn()" (click)="setFlag(project._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <div *ngIf="isFlagged(project._id)">
+        <button (click)="setOffFlag(project._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
+        <button (click)="deleteProjects(project._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
+      </div>
+    </small>
+  </h4>
+  <p class=""><b>Description: </b>{{project.description}}</p>
+  <p><b>Duration: </b><span class="badge badge-pill badge-default">{{project.term}}</span></p>
+  <div class="facilities">
+    <p><b>Concepts: </b><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
+  </div>
+  <div class="facilities">
+    <p><b>Tools: </b><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
+  </div>
+</div>

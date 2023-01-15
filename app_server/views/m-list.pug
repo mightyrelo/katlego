@@ -1,0 +1,24 @@
+extends content-layout
+
+include _include/sharedHTMLFunctions
+
+block main_content
+  .col-12.col-md-8
+    a(href='/ms/new') Add M 
+  .col-12.col-md-8 
+    .error= message
+  each m in Ms
+    .card 
+      .card-block 
+        h4 
+          a(href=`/ms/${m._id}`)= m.a1 
+          small &nbsp;
+            +outputRating(m.a2) 
+          span.badge.badge-pill.badge-default.float-right= m.a3
+          small 
+            a.float-right(href=`/ms/${m._id}/del`) delete 
+        p.address= m.a4
+        .facilities 
+          each facility in m.facilities 
+            span.badge.badge-pill= facility
+  

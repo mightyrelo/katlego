@@ -1,0 +1,21 @@
+<p class="lead">Already a member? Please <a routerLink="/login">log in</a>, instead.</p>
+<form (ngSubmit)="onRegisterSubmit()" method="post" role="form">
+  <div *ngIf="formError" class="alert alert-danger">
+    {{formError}}
+    </div>
+  <div class="form-group">
+     <label for="name">name</label>
+     <input class="form-control" id="name" name="name" type="text" placeholder="" [(ngModel)]="credentials.name">
+  </div> 
+  <div class="form-group">
+     <label for="email">email</label>
+     <input class="form-control" id="email" name="email" type="email" placeholder="" [(ngModel)]="credentials.email">
+  </div> 
+  <div class="form-group">          
+     <label for="password">password</label>
+     <input class="form-control" id="password" name="password" type="password" placeholder="" [(ngModel)]="credentials.password">
+  </div> 
+  <div class="form-group">
+  </div>
+  <button  type="submit" role="button" class="btn-primary sm-button">Register!</button>  
+</form>  

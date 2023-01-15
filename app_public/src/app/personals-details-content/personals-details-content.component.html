@@ -1,0 +1,88 @@
+
+  <div class="row">
+    <div class="col-12" >
+      <small>
+        <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">edit info </button>
+        <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to edit info</button>
+        </a>
+      </small>
+    </div>
+    <div *ngIf="openForm" class="col-12 col-md-8">
+      <form (ngSubmit)="onPersonalsSubmit(dbPers._id)" >
+        <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+          {{errorInForm}}
+        </div> 
+        <div class="form-group">
+          <label for="name">Full Names</label>
+          <input class="form-control" id="name" name="name" type="text" placeholder="" [(ngModel)]="formPersonals.name">
+       </div> 
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <input class="form-control" id="gender" name="gender" type="text" placeholder="" [(ngModel)]="formPersonals.gender">
+       </div> 
+        <div class="form-group">
+          <label for="idNo">ID No</label>
+          <input class="form-control" id="idNo" name="idNo" type="text" placeholder="" [(ngModel)]="formPersonals.idNo">
+       </div> 
+       <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <input class="form-control" type="text" id="nationality" name="nationality" [(ngModel)]="formPersonals.nationality">
+       </div>
+       <div class="form-group">
+        <label for="maritalStatus">Marital Status</label>
+        <input class="form-control" type="text" id="maritalStatus" name="maritalStatus" [(ngModel)]="formPersonals.maritalStatus">
+       </div> 
+      <div class="form-group">
+          <label for="race">Race</label>
+          <input class="form-control" id="race" name="race" type="text" placeholder="" [(ngModel)]="formPersonals.race">
+       </div> 
+      <div class="form-group">
+          <label for="languages">Languages</label>
+          <input class="form-control" id="languages" name="languages" type="text" placeholder="" [(ngModel)]="formPersonals.languages">
+       </div> 
+      <div class="form-group">
+          <label for="passions">Passions</label>
+          <input class="form-control" id="passions" name="passions" type="text" placeholder="" [(ngModel)]="formPersonals.passions">
+       </div> 
+        <button type="submit" role="button" class="btn-primary">edit</button> 
+        <button (click)="resetAndHidePersonalForm()" type="button" role="button" class="btn-primary">cancel</button> 
+      </form>     
+    </div> 
+    <div class="col-12 col-md-6">
+     <p>Created by: {{dbPers.userId}}</p>
+     <div class="card card-primary">
+       <div class="card-block">
+         <h2 class="card-title">Personal Info </h2>
+         <p class="card-text"><b> Full Names    :</b> {{dbPers.name}}</p>
+         <p class="card-text"><b> ID No         :</b> {{dbPers.idNo}}</p>
+         <p class="card-text"><b> Gender        :</b> {{dbPers.gender}}</p>
+         <p class="card-text"><b> Nationality   :</b> {{dbPers.nationality}}</p>
+         <p class="card-text"><b> Marital Status:</b> {{dbPers.maritalStatus}}</p>
+         <p class="card-text"><b> Race          :</b> {{dbPers.race}}</p>
+         </div>
+     </div>
+     <div class="card card-primary">
+        <div class="card-block">
+          <h2 class="card-title">Languages </h2>
+          <span *ngFor="let language of dbPers.languages" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{language}} </span>
+          &nbsp;
+        </div>
+     </div>
+     <div class="card card-primary">
+        <div class="card-block">
+          <h2 class="card-title">Passions </h2>
+          <span *ngFor="let passion of dbPers.passions" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{passion}} </span>
+          &nbsp;
+        </div>
+     </div>
+    </div>
+    <div class="col-12 col-md-6 location-map">
+      <div class="card card-primary">
+        <div class="card-block">
+          <h2 class="card-title">Katlego </h2>
+          <img src="/assets/images/katlego.jpg" width="330" height="420" alt="person picture">
+        </div>
+      </div>
+    </div>
+  </div>
+     

@@ -1,0 +1,50 @@
+extends content-layout
+
+include _include/sharedHTMLFunctions
+
+block main_content
+  .col-12.col-md-8 
+    .error= message
+  .row 
+    .col-12.col-lg-9 
+      .row 
+        .col-12.col-md-6 
+          p.rating 
+           +outputRating(m.a2)
+          p= m.a1 
+          .card.card-primary 
+            .card-block 
+              h2.card-title Duration 
+              p.card-text= m.a3
+              p.card-text= m.a4
+              p.card-text= m.a5 
+          .card.card-primary 
+            .card-block 
+              h2.card-title Facilities 
+              each facility in m.facilities
+                span.badge.badge-warning 
+                  i.fa.fa-check 
+                  | &nbsp; #{facility} 
+                | &nbsp;
+        .col-12.col-md-6.location-map 
+          .card.card-primary 
+            .card-block 
+              h2.card-title LA Pictures 
+      .row 
+        .col-12 
+          .card-primary.review-card 
+            .card-block 
+              a.btn.btn-primary.float-right(href=`/ms/${m._id}/sms/new`) Add SM 
+              h2.card-title SMs 
+              each sm in m.sms 
+                .row.review 
+                  .col-12.no-gutters.review-header 
+                    small.reviewTimestamp 
+                      +formatDate(sm.b3)
+                    small.reviewTimestamp #{sm.b2}
+                    small 
+                      a.float-right(href=`/ms/${m._id}/sms/${sm._id}/del`) delete
+                  .col-12 
+                    p= sm.b1
+
+

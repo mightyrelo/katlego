@@ -1,0 +1,14 @@
+mixin outputRating(rating)
+  -  for(let i = 1; i <= rating;i++)
+     i.fas.fa-star 
+  -  for(let i = rating; i < 5;i++)
+     i.far.fa-star 
+
+mixin formatDate(dateString)
+  -  const date = new Date(dateString);
+  -  const MonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  -  const d = date.getDate();
+  -  const m = date.getMonth();
+  -  const y = date.getFullYear()
+  -  const output = `${y} ${m} ${d} ---->   `;
+  =output  

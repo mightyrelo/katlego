@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12" >
+    <small>
+      <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">add Work </button>
+      <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to add Work </button>
+      </a>
+    </small>
+  </div>
+  <div *ngIf="openForm" class="col-12 col-md-8">
+    <form (ngSubmit)="onWorkSubmit()" >
+      <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+        {{errorInForm}}
+      </div> 
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input class="form-control" id="company" name="ins" type="text" placeholder="" [(ngModel)]="formWorks.company">
+     </div> 
+    <div class="form-group">
+        <label for="industry">Industry</label>
+        <input class="form-control" id="industry" name="industry" type="text" placeholder="" [(ngModel)]="formWorks.industry">
+     </div> 
+    <div class="form-group">
+        <label for="position">Position</label>
+        <input class="form-control" id="position" name="position" type="text" placeholder="" [(ngModel)]="formWorks.position">
+     </div> 
+    <div class="form-group">
+        <label for="contactPerson">Contact Person</label>
+        <input class="form-control" id="contactPerson" name="contactPerson" type="text" placeholder="" [(ngModel)]="formWorks.contactPerson">
+     </div> 
+     <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input class="form-control" id="startDate" name="startDate" type="text" placeholder="" [(ngModel)]="formWorks.startDate">
+     </div> 
+     <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input class="form-control" id="endDate" name="endDate" type="text" placeholder="" [(ngModel)]="formWorks.endDate">
+     </div> 
+     <div class="form-group">
+      <label for="responsibilities">Interests</label>
+      <input class="form-control" type="text" id="responsibilities" name="responsibilities" [(ngModel)]="formWorks.responsibilities">
+     </div> 
+      <button type="submit" role="button" class="btn-primary">add</button> 
+      <button (click)="resetAndHideWorkForm()" type="button" role="button" class="btn-primary">cancel</button> 
+    </form>     
+  </div>
+</div> 
+<div *ngFor="let work of works" class="card">
+   <div class="card-block"> 
+   </div>
+   <h4> <a routerLink="/works/{{work._id}}">{{work.company}}</a>
+    <small>&nbsp;
+      <a *ngIf="isLoggedIn()" (click)="setFlag(work._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <div *ngIf="isFlagged(work._id)">
+        <button (click)="setOffFlag(work._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
+        <button (click)="deleteWorks(work._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
+      </div>
+    </small>
+  </h4>
+  <p><b>Industry: </b><span class="badge badge-pill badge-default">{{work.industry}}</span></p>
+  <p><b>Position: </b><span class="badge badge-pill badge-default">{{work.position}}</span></p>
+  <p class="address"><b>Start Date: </b>{{work.startDate}}</p>
+  <p class="address"><b>End Date: </b>{{work.endDate}}</p>
+  <div class="facilities">
+    <p><b>Duties: </b><span *ngFor="let resp of work.responsibilities" class="badge badge-warning">{{resp}}</span></p>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12" >
+    <small>
+      <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">add Contact </button>
+      <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to add Contact </button>
+      </a>
+    </small>
+  </div>
+  <div *ngIf="openForm" class="col-12 col-md-8">
+    <form (ngSubmit)="onContactSubmit()" >
+      <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+        {{errorInForm}}
+      </div> 
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input class="form-control" id="address" name="address" type="text" placeholder="" [(ngModel)]="formContacts.address">
+     </div> 
+    <div class="form-group">
+        <label for="facebook">Facebook</label>
+        <input class="form-control" id="facebook" name="facebook" type="text" placeholder="" [(ngModel)]="formContacts.facebook">
+     </div> 
+    <div class="form-group">
+        <label for="instagram">Instagram</label>
+        <input class="form-control" id="instagram" name="instagram" type="text" placeholder="" [(ngModel)]="formContacts.instagram">
+     </div> 
+    <div class="form-group">
+        <label for="twitter">Twitter</label>
+        <input class="form-control" id="twitter" name="twitter" type="text" placeholder="" [(ngModel)]="formContacts.twitter">
+     </div> 
+     <div class="form-group">
+      <label for="cellphones">Cellphones</label>
+      <input class="form-control" type="text" id="cellphones" name="cellphones" [(ngModel)]="formContacts.cellphones">
+     </div> 
+     <div class="form-group">
+      <label for="emails">Emails</label>
+      <input class="form-control" type="text" id="emails" name="emails" [(ngModel)]="formContacts.emails">
+     </div> 
+      <button type="submit" role="button" class="btn-primary">add</button> 
+      <button (click)="resetAndHideContactForm()" type="button" role="button" class="btn-primary">cancel</button> 
+    </form>     
+  </div>
+</div> 
+<div *ngFor="let contact of contacts" class="card">
+   <div class="card-block"> 
+   </div>
+   <h4> <a routerLink="/contacts/{{contact._id}}">Contact Details</a>
+    <small>&nbsp;
+      <a *ngIf="isLoggedIn()" (click)="setFlag(contact._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <div *ngIf="isFlagged(contact._id)">
+        <button (click)="setOffFlag(contact._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
+        <button (click)="deleteContacts(contact._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
+      </div>
+    </small>
+  </h4>
+  <p><b>Address:     </b><span class="badge badge-pill badge-default">{{contact.address}}</span></p>
+  <p><b>Facebook:     </b><span class="badge badge-pill badge-default">{{contact.facebook}}</span></p>
+  <p><b>Instagram:    </b><span class="badge badge-pill badge-default">{{contact.instagram}}</span></p>
+  <p><b>Twitter:     </b><span class="badge badge-pill badge-default">{{contact.twitter}}</span></p>  
+  <div class="facilities">
+    <p><b>Emails:       </b><span *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span></p>
+  </div>
+  <div class="facilities">
+    <p><b>Cell numbers:    </b><span *ngFor="let cellphone of contact.cellphones" class="badge badge-warning">{{cellphone}}</span></p>
+  </div>
+
+</div>

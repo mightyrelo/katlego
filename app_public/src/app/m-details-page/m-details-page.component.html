@@ -1,0 +1,5 @@
+<app-page-header [content]="pageContent.header"></app-page-header>
+<div class="row">
+  <app-m-details-content *ngIf="newM" class="col-12 col-sm-9" [dbM]="newM"></app-m-details-content>
+  <app-side-bar [content]="pageContent.sideBar" class="col-12 col-sm-3"></app-side-bar>
+</div>
