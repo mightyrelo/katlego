@@ -15,11 +15,14 @@ const projectsCreateOne = (req, res) => {
     const formProject = {
         name: req.body.name,
         description: req.body.description,
+        descriptionFull: req.body.descriptionFull,
         term: req.body.term,
         language: req.body.language,
         tools: req.body.tools.split(','),
         concepts: req.body.concepts.split(','),
-        userId: req.body.userId
+        userId: req.body.userId,
+        link: req.body.link,
+        github: req.body.github
     };
     Project
      .create(formProject, (err, dbProject) => {

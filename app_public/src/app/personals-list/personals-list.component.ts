@@ -24,7 +24,9 @@ export class PersonalsListComponent implements OnInit {
     maritalStatus: '',
     userId: '',
     nationality: '',
-    flaggedForDeletion: false 
+    flaggedForDeletion: false,
+    passport: '',
+    license: '', 
   };
 
   public openForm : boolean = false;
@@ -115,6 +117,8 @@ export class PersonalsListComponent implements OnInit {
     this.formPersonals.passions =  [];
     this.formPersonals.maritalStatus =  '';
     this.formPersonals.nationality =  '';
+    this.formPersonals.license =  '';
+    this.formPersonals.passport =  '';
     this.openForm = false;
     this.errorInForm = ''; 
   }

@@ -17,15 +17,22 @@ export class ProjectListContentComponent implements OnInit {
     _id: '',
     name: '',
     description: '',
+    descriptionFull: '',
     term: '',
     tools: [],
     concepts: [],
     language: '',
     userId: '',
-    flaggedForDeletion: false 
+    flaggedForDeletion: false,
+    flaggedForDesc: false,
+    link: '',
+    github: '',
+    passport: '',
+    license: ''
   };
 
   public openForm : boolean = false;
+  public openDesc: boolean = false;
 
   public errorInForm : string = '';
 
@@ -49,9 +56,17 @@ export class ProjectListContentComponent implements OnInit {
   public setFlag(pId: string) : void {
     for(let i=0; i < this.projects.length; i++) {
       if(this.projects[i]._id == pId) {
-        console.log(pId, ' flagged');
         this.projects[i].flaggedForDeletion = true;
       } 
+    }
+  }
+
+  public setShowFlag(pId: string) : void {
+    this.openDesc = true;
+    for(let i = 0; i < this.projects.length; i++) {
+      if(this.projects[i]._id == pId) {
+        this.projects[i].flaggedForDesc = true;
+      }
     }
   }
 
@@ -66,6 +81,17 @@ export class ProjectListContentComponent implements OnInit {
     return false;
   }
 
+  public isFlaggedForShow(pId: string) : boolean {
+    for(let i=0; i < this.projects.length; i++) {
+      if(this.projects[i]._id == pId) {
+        if(this.projects[i].flaggedForDesc) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   public setOffFlag(pId: string) : void {
     for(let i=0; i < this.projects.length; i++) {
       if(this.projects[i]._id == pId) {
@@ -73,6 +99,16 @@ export class ProjectListContentComponent implements OnInit {
       }
     }
   }
+  public setOffShowFlag(pId: string) : void {
+    this.openDesc = false;
+    for(let i=0; i < this.projects.length; i++) {
+      if(this.projects[i]._id == pId) {
+        this.projects[i].flaggedForDesc = false; 
+      }
+    }
+  }
+
+
 
   public formIsValid() : boolean {
     if(!this.formProjects.name || !this.formProjects.description || !this.formProjects.term || !this.formProjects.language 
@@ -108,12 +144,15 @@ export class ProjectListContentComponent implements OnInit {
   public resetAndHideProjectForm() : void {
     this.formProjects.name = '';
     this.formProjects.description = '';
+    this.formProjects.descriptionFull = '';
     this.formProjects.term =  '';
     this.formProjects.language =  '';
     this.formProjects.tools = [];
     this.formProjects.concepts = [];
     this.openForm = false;
-    this.errorInForm = ''; 
+    this.errorInForm = '';
+    this.formProjects.link = ''; 
+    this.formProjects.github = ''; 
   }
 
   public deleteProjects(pId: string) : void{

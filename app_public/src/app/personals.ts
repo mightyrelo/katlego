@@ -9,5 +9,7 @@ export class Personals {
     maritalStatus: string;
     userId: string;
     nationality: string;
-    flaggedForDeletion: boolean;  
+    flaggedForDeletion: boolean;
+    passport: string;
+    license: string;  
 }

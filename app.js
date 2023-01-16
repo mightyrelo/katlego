@@ -9,7 +9,7 @@ const passport = require('passport');
 require('./app_api/models/db_connection');
 require('./app_api/config/passport');
 
-//var indexRouter = require('./app_server/routes/index');
+
 const apiRouter = require('./app_api/routes/apIndex');
 
 

@@ -22,7 +22,9 @@ const personalsCreateOne = (req, res) => {
         userId: req.body.userId,
         nationality: req.body.nationality,
         race: req.body.race,
-        maritalStatus: req.body.maritalStatus
+        maritalStatus: req.body.maritalStatus,
+        passportNo: req.body.passport,
+        licenseNo: req.body.licence
     };
     Personal
      .create(formPersonal, (err, dbPersonal) => {

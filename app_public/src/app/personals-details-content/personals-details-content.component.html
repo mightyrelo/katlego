@@ -29,6 +29,14 @@
         <input class="form-control" type="text" id="nationality" name="nationality" [(ngModel)]="formPersonals.nationality">
        </div>
        <div class="form-group">
+        <label for="license">Driver's License No</label>
+        <input class="form-control" type="text" id="license" name="license" [(ngModel)]="formPersonals.license">
+       </div>
+       <div class="form-group">
+        <label for="passport">Passport</label>
+        <input class="form-control" type="text" id="passport" name="passport" [(ngModel)]="formPersonals.passport">
+       </div>   
+       <div class="form-group">
         <label for="maritalStatus">Marital Status</label>
         <input class="form-control" type="text" id="maritalStatus" name="maritalStatus" [(ngModel)]="formPersonals.maritalStatus">
        </div> 
@@ -54,12 +62,14 @@
        <div class="card-block">
          <h2 class="card-title">Personal Info </h2>
          <p class="card-text"><b> Full Names    :</b> {{dbPers.name}}</p>
-         <p class="card-text"><b> ID No         :</b> {{dbPers.idNo}}</p>
          <p class="card-text"><b> Gender        :</b> {{dbPers.gender}}</p>
+         <p class="card-text"><b> Race          :</b> {{dbPers.race}}</p>
+         <p class="card-text"><b> ID No         :</b> {{dbPers.idNo}}</p>
          <p class="card-text"><b> Nationality   :</b> {{dbPers.nationality}}</p>
          <p class="card-text"><b> Marital Status:</b> {{dbPers.maritalStatus}}</p>
-         <p class="card-text"><b> Race          :</b> {{dbPers.race}}</p>
-         </div>
+         <p class="card-text"><b> License No    :</b> {{dbPers.license}}</p>
+         <p class="card-text"><b> Passport No    :</b> {{dbPers.passport}}</p>         
+       </div>
      </div>
      <div class="card card-primary">
         <div class="card-block">

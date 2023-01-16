@@ -25,7 +25,9 @@ export class PersonalsDetailsContentComponent implements OnInit {
     maritalStatus: '',
     userId: '',
     nationality: '',
-    flaggedForDeletion: false 
+    flaggedForDeletion: false,
+    passport: '',
+    license: '', 
   };
 
   public openForm : boolean = false;

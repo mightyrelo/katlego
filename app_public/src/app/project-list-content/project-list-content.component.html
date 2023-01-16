@@ -20,6 +20,10 @@
         <input class="form-control" id="description" name="description" type="text" placeholder="" [(ngModel)]="formProjects.description">
      </div> 
     <div class="form-group">
+        <label for="descriptionFull">Full Description</label>
+        <textarea class="form-control" id="descriptionFull" name="descriptionFull" type="text" placeholder="" [(ngModel)]="formProjects.descriptionFull"></textarea>
+     </div> 
+    <div class="form-group">
         <label for="term">Term</label>
         <input class="form-control" id="term" name="term" type="text" placeholder="" [(ngModel)]="formProjects.term">
      </div> 
@@ -35,6 +39,14 @@
       <label for="tools">Tools</label>
       <input class="form-control" type="text" id="tools" name="tools" [(ngModel)]="formProjects.tools">
      </div> 
+     <div class="form-group">
+      <label for="link">Link</label>
+      <input class="form-control" type="text" id="link" name="link" [(ngModel)]="formProjects.link">
+     </div> 
+     <div class="form-group">
+      <label for="github">Github</label>
+      <input class="form-control" type="text" id="github" name="github" [(ngModel)]="formProjects.github">
+     </div> 
       <button type="submit" role="button" class="btn-primary">add</button> 
       <button (click)="resetAndHideProjectForm()" type="button" role="button" class="btn-primary">cancel</button> 
     </form>     
@@ -43,7 +55,7 @@
 <div *ngFor="let project of projects" class="card">
    <div class="card-block"> 
    </div>
-   <h4> <a routerLink="/projects/{{project._id}}">{{project.name}}</a>
+   <h4> <a routerLink="projects/{{project._id}}" >{{project.name}}</a>
     <small>&nbsp;
       <a *ngIf="isLoggedIn()" (click)="setFlag(project._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
       <div *ngIf="isFlagged(project._id)">
@@ -53,11 +65,19 @@
     </small>
   </h4>
   <p class=""><b>Description: </b>{{project.description}}</p>
+    <small><a *ngIf="!isFlaggedForShow(project._id)" (click)="setShowFlag(project._id)" >show more </a> </small>
+    <div *ngIf="isFlaggedForShow(project._id)" class="col-12 col-md-10">
+      <p class="">{{project.descriptionFull}}</p>
+      <small><a (click)="setOffShowFlag(project._id)" type="button" role="button">show less</a></small> 
+    </div>
+  <p><b>Language: </b><span class="badge badge-pill badge-default">{{project.language}}</span></p>
   <p><b>Duration: </b><span class="badge badge-pill badge-default">{{project.term}}</span></p>
   <div class="facilities">
     <p><b>Concepts: </b><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
   </div>
   <div class="facilities">
     <p><b>Tools: </b><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
+    <p><b>Link: </b><span><a href="project.link">{{project.link}}</a></span></p>
+    <p><b>Github: </b><span><a href="project.github">{{project.github}}</a></span></p>
   </div>
 </div>
