@@ -1,4 +1,4 @@
 export const environment = {
-  apiBaseUrl: 'http://localhost:3000/api',
+  apiBaseUrl: 'https://katlego.herokuapp.com/api',
   production: true
 };

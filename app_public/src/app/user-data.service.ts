@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import {environment} from '../environments/environment';
+
 import { User } from './user';
 import { AuthResponse } from './auth-response';
 
@@ -9,7 +11,7 @@ import { AuthResponse } from './auth-response';
 })
 export class UserDataService {
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
   constructor(
     private http: HttpClient

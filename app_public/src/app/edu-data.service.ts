@@ -2,6 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BROWSER_STORAGE } from './storage';
 
+import {environment} from '../environments/environment';
+
 import { Education } from './education';
 
 @Injectable({
@@ -9,7 +11,7 @@ import { Education } from './education';
 })
 export class EduDataService {
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
   constructor(
     private http: HttpClient,

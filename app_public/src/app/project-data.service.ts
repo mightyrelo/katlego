@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BROWSER_STORAGE } from './storage';
 
+import {environment} from '../environments/environment';
 
 import { Project } from './project';
 
@@ -10,7 +11,7 @@ import { Project } from './project';
 })
 export class ProjectDataService {
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
   constructor(
     private http: HttpClient,

@@ -2,6 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BROWSER_STORAGE } from './storage';
 
+import {environment} from '../environments/environment';
+
 
 import { Work } from './work';
 
@@ -10,7 +12,7 @@ import { Work } from './work';
 })
 export class WorkDataService {
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
   constructor(
     private http: HttpClient,
