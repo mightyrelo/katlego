@@ -23,8 +23,8 @@ const personalsCreateOne = (req, res) => {
         nationality: req.body.nationality,
         race: req.body.race,
         maritalStatus: req.body.maritalStatus,
-        passportNo: req.body.passport,
-        licenseNo: req.body.licence
+        passport: req.body.passport,
+        license: req.body.licence
     };
     Personal
      .create(formPersonal, (err, dbPersonal) => {
@@ -80,7 +80,7 @@ const doUpdatePersonals = (req, res, personal) => {
     }
     if(req.body.languages) {
       //personal.languages = req.body.languages;
-      personal.languages = req.body.languages.split(',')
+      personal.languages = req.body.languages.split(',');
     }
     if(req.body.passions){
         personal.passions = req.body.passions;
