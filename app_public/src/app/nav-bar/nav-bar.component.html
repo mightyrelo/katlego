@@ -69,7 +69,7 @@
 
 <nav class="navbar fixed-top navbar-expand-md navbar-light">
 	<div class="container">
-		<a class="navbar-brand" href="/">About Kat</a>
+		<a class="navbar-brand" routerLink="">About Kat</a>
 		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarMain">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -77,15 +77,17 @@
 	<div class="container">
 		<div class="navbar-collapse collapse" id="navbarMain">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/about/">Personal</a></li>
-				<li class="nav-item"><a class="nav-link" href="/customers/">Education</a></li>
-				<li class="nav-item"><a class="nav-link" href="/products/">Work</a></li>
-				<li class="nav-item"><a class="nav-link" href="/products/">Projects</a></li>
-				<li class="nav-item"><a class="nav-link" href="/products/">Contacts</a></li>
+        <li class="nav-item"><a routerLink="personals" routerLinkActive="active" class="nav-link">personal</a></li>
+        <li class="nav-item"><a routerLink="educations" routerLinkActive="active" class="nav-link">education</a></li>
+        <li class="nav-item"><a routerLink="works" routerLinkActive="active" class="nav-link">work</a></li>
+        <li class="nav-item"><a routerLink="projects" routerLinkActive="active" class="nav-link">projects</a></li>
+        <li class="nav-item"><a routerLink="contacts" routerLinkActive="active" class="nav-link">contacts</a></li>
 			</ul>
 			<ul class="navbar-nav navbar-right">
-				<li class="nav-item"><a class="nav-link" href="/register/">Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="/signout/">Sign out</a></li>
+        <li class="nav-item"><a routerLinkActive="active" class="nav-link" routerLink="register" *ngIf="!isLoggedIn()">register</a></li>
+        <li class="nav-item"><a routerLinkActive="active" class="nav-link" routerLink="login" *ngIf="!isLoggedIn()">login</a></li>
+        <li class="nav-item"><a routerLinkActive="active" class="nav-link" *ngIf="isLoggedIn()">{{getUserName()}}</a></li>
+        <li class="nav-item"><a class="nav-link btn" (click)="doLogout()" *ngIf="isLoggedIn()">logout</a></li>
 			</ul>
 		</div>
 	</div>

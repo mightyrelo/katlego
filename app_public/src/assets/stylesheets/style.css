@@ -6,7 +6,7 @@ legend {
 font-family: 'Lobster', cursive;
 }
 .navbar {
-background-color: rgba(0,100,0, 0.2);
+background-color: rgba(0,100,0, 0.8);
 border-color: greenyellow;
 }
 .navbar-light .navbar-brand {
@@ -96,11 +96,19 @@ h4 small {
   }
   body {
   font-family: "Cabin", Arial, sans-serif;
-  color: #fff;
+  color: white;
   background-image: url('../images/pexels-pixabay.jpg');
   background-attachment: fixed;
   }
 
   .sm-button {
     margin-bottom: 2px;
+  }
+
+  .text {
+    color:white;
+  }
+
+  .heading {
+    font-family: 'Lobster', cursive;
   }
