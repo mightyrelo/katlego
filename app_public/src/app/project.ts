@@ -12,6 +12,5 @@ export class Project {
     flaggedForDesc: boolean;
     link: string;
     github: string;
-    passport: string;
-    license: string; 
+         
 }

@@ -153,6 +153,9 @@ export class ProjectListContentComponent implements OnInit {
     this.errorInForm = '';
     this.formProjects.link = ''; 
     this.formProjects.github = ''; 
+    this.formProjects.license = ''; 
+    this.formProjects.passport = ''; 
+    
   }
 
   public deleteProjects(pId: string) : void{
