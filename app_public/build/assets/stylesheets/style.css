@@ -6,7 +6,7 @@ legend {
 font-family: 'Lobster', cursive;
 }
 .navbar {
-background-color: rgba(0,100,0, 0.65);
+background-color: rgba(0,100,0, 0.45);
 border-color: greenyellow;
 }
 .navbar-light .navbar-brand {
