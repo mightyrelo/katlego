@@ -35,6 +35,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a routerLink="personals" routerLinkActive="active" class="nav-link">Personal</a>
+          
             <a routerLink="educations" routerLinkActive="active" class="nav-link">Education</a>
             <a routerLink="works" routerLinkActive="active" class="nav-link">Work</a>
             <a routerLink="projects" routerLinkActive="active" class="nav-link">Projects</a>
@@ -44,5 +45,48 @@
       </div>
     </div>
   </nav>
+
+<nav class="navbar fixed-top navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand"  routerLink="">About Kats</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="container">
+      <div class="navbar-collapse collapse" id="navbarMain">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="personals">Personal</a></li>
+          <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="works">Work</a></li>
+          <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="contacts">Contacts</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
 -->
-  <nav class="navbar fixed-top navbar-expand-md navbar-light"><div class="container"><a class="navbar-brand" href="/">Loc8r</a><button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarMain" aria-expanded="false"><span class="navbar-toggler-icon"></span></button><div class="navbar-collapse collapse" id="navbarMain" style=""><ul class="navbar-nav mr-auto"><li class="nav-item"><a class="nav-link" href="/about/">About</a><a class="nav-link" href="/about/">About</a><a class="nav-link" href="/about/">About</a><a class="nav-link" href="/about/">About</a></li></ul></div></div></nav>
+
+<nav class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<a class="navbar-brand" href="/">About Kat</a>
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarMain">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+	<div class="container">
+		<div class="navbar-collapse collapse" id="navbarMain">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/about/">Personal</a></li>
+				<li class="nav-item"><a class="nav-link" href="/customers/">Education</a></li>
+				<li class="nav-item"><a class="nav-link" href="/products/">Work</a></li>
+				<li class="nav-item"><a class="nav-link" href="/products/">Projects</a></li>
+				<li class="nav-item"><a class="nav-link" href="/products/">Contacts</a></li>
+			</ul>
+			<ul class="navbar-nav navbar-right">
+				<li class="nav-item"><a class="nav-link" href="/register/">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="/signout/">Sign out</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
