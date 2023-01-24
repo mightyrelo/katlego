@@ -40,6 +40,11 @@ margin-top: 2px;
   text-decoration-thickness: 0.25em;
 }
 
+.card-title {
+  font-family: 'Lobster', cursive;
+}
+
+
 
 
 .card-primary {
