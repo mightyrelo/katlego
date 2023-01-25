@@ -43,7 +43,7 @@
 <div *ngFor="let contact of contacts" class="card">
    <div class="card-block"> 
    </div>
-   <h4> <a routerLink="/contacts/{{contact._id}}">Contact Details</a>
+   <h4> <a routerLink="/contacts/{{contact._id}}" class="heading">Contact Details</a>
     <small>&nbsp;
       <a *ngIf="isLoggedIn()" (click)="setFlag(contact._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
       <div *ngIf="isFlagged(contact._id)">

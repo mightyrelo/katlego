@@ -47,7 +47,7 @@
 <div *ngFor="let work of works" class="card">
    <div class="card-block"> 
    </div>
-   <h4> <a routerLink="/works/{{work._id}}">{{work.company}}</a>
+   <h4> <a routerLink="/works/{{work._id}}" class="heading">{{work.company}}</a>
     <small>&nbsp;
       <a *ngIf="isLoggedIn()" (click)="setFlag(work._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
       <div *ngIf="isFlagged(work._id)">
