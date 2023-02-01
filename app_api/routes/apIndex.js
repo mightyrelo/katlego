@@ -18,6 +18,7 @@ const eduCtrl = require('../controllers/Educations');
 const workCtrl = require('../controllers/Works');
 const projCtrl = require('../controllers/Projects');
 const contactCtrl = require('../controllers/Contacts');
+const articleCtrl = require('../controllers/Articles');
 
 
 //model/collection routes
@@ -120,6 +121,19 @@ router
   .get(contactCtrl.contactsReadOne)
   .put(contactCtrl.contactsUpdateOne)
   .delete(auth, contactCtrl.contactsDeleteOne);
+
+//list
+router
+    .route('/articles')
+    .get(articleCtrl.articlesReadAll)
+    .post(articleCtrl.articlesCreateOne);
+
+//document
+router
+    .route('/articles/:articleId')
+    .get(articleCtrl.articlesReadOne)
+    .put(articleCtrl.articlesUpdateOne)
+    .delete(articleCtrl.articlesDeleteOne);
 
 
 
