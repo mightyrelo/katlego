@@ -15,6 +15,9 @@ const ArticleSchema = mongoose.Schema({
     createdOn: {
         type: Date,
         'default': Date.now
+    },
+    abstract: {
+        type: String
     }
 
 });

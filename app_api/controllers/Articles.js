@@ -19,11 +19,12 @@ const articlesReadAll = (req, res) => {
 };
 
 const articlesCreateOne = (req, res) => {
-    if(!req.body.title || !req.body.article || !req.body.author) {sendJSONResponse(res, 400, {"message":"missing fields required"});return;}
+    if(!req.body.title || !req.body.article || !req.body.author || !req.body.abstract) {sendJSONResponse(res, 400, {"message":"missing fields required"});return;}
     let formArticle = {
         title: req.body.title,
         article: req.body.article,
         author: req.body.author,
+        abstract: req.body.abstract
     };
     
     Article
@@ -57,6 +58,9 @@ const doUpdateArticle = (req, res, article) => {
     }
     if(req.body.author){
         article.author = req.body.author;
+    }
+    if(req.body.abstract){
+        article.abstract = req.body.abstract;
     }
   
     article.save((err, dbArticle) => {

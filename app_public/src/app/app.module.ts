@@ -42,6 +42,10 @@ import { ContactListContentComponent } from './contact-list-content/contact-list
 import { ContactDetailsPageComponent } from './contact-details-page/contact-details-page.component';
 import { ContactDetailsContentComponent } from './contact-details-content/contact-details-content.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { ArticleListPageComponent } from './article-list-page/article-list-page.component';
+import { ArticleListContentComponent } from './article-list-content/article-list-content.component';
+import { ArticleDetailsPageComponent } from './article-details-page/article-details-page.component';
+import { ArticleDetailsContentComponent } from './article-details-content/article-details-content.component';
 
 
 @NgModule({
@@ -83,7 +87,11 @@ import { AboutPageComponent } from './about-page/about-page.component';
     ContactListContentComponent,
     ContactDetailsPageComponent,
     ContactDetailsContentComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    ArticleListPageComponent,
+    ArticleListContentComponent,
+    ArticleDetailsPageComponent,
+    ArticleDetailsContentComponent
   ],
   imports: [
     BrowserModule,

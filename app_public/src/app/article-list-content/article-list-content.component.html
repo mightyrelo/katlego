@@ -1,0 +1,45 @@
+
+  <div class="row">
+    <div class="col-12" >
+      <small>
+        <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">add article </button>
+        <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to add article</button>
+        </a>
+      </small>
+    </div>
+    <div *ngIf="openForm" class="col-12 col-md-8">
+      <form (ngSubmit)="onArticlesSubmit(dbArt._id)" >
+        <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+          {{errorInForm}}
+        </div> 
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" id="title" name="title" type="text" placeholder="" [(ngModel)]="formArticles.title">
+       </div> 
+        <div class="form-group">
+          <label for="abstract">Abstract</label>
+          <textarea class="form-control" id="abstract" name="abstract" type="text" placeholder="" [(ngModel)]="formArticles.abstract"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="article">Article</label>
+          <textarea class="form-control" id="article" name="article" type="text" placeholder="" [(ngModel)]="formArticles.article"></textarea>
+        </div>
+          <button type="submit" role="button" class="btn-primary">add</button> 
+          <button (click)="resetAndHideArticleForm()" type="button" role="button" class="btn-primary">cancel</button> 
+      </form>     
+    </div> 
+    <div *ngFor="let article of articles" class="card">
+      <div class="card-block"> 
+      </div>
+      <h4> <a routerLink="/articles/{{article._id}}" class="heading">{{article.title}}</a>
+       <small>&nbsp;
+         <a *ngIf="isLoggedIn()" (click)="setFlag(article._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+         <div *ngIf="isFlagged(article._id)">
+           <button (click)="setOffFlag(article._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
+           <button (click)="deleteArticles(article._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
+         </div>
+       </small>
+     </h4>
+     <p> {{article.abstract}}</p>
+   </div>
+     

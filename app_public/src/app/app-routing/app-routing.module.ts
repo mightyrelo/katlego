@@ -19,6 +19,8 @@ import { ProjectListPageComponent } from '../project-list-page/project-list-page
 import { ProjectDetailsPageComponent } from '../project-details-page/project-details-page.component';
 import { ContactListPageComponent } from '../contact-list-page/contact-list-page.component';
 import { ContactDetailsPageComponent } from '../contact-details-page/contact-details-page.component';
+import { ArticleListPageComponent } from '../article-list-page/article-list-page.component';
+import { ArticleDetailsPageComponent } from '../article-details-page/article-details-page.component';
 
 const routes : Routes = 
   [{
@@ -75,6 +77,12 @@ const routes : Routes =
 }, {
   path: 'contacts/:contactId',
   component: ContactDetailsPageComponent, 
+}, {
+  path: 'articles',
+  component: ArticleListPageComponent, 
+}, {
+  path: 'articles/:articleId',
+  component: ArticleDetailsPageComponent, 
 }] ;
 
 @NgModule({

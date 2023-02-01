@@ -1,0 +1,43 @@
+
+  <div class="row">
+    <div class="col-12" >
+      <small>
+        <button *ngIf="isLoggedIn()" class="btn-primary" (click)="openForm=true">edit </button>
+        <a *ngIf="!isLoggedIn()" routerLink="/login"><button class="btn-primary">log in to edit article</button>
+        </a>
+      </small>
+    </div>
+    <div *ngIf="openForm" class="col-12 col-md-8">
+      <form (ngSubmit)="onArticleSubmit(dbArt._id)" >
+        <div role="alert" *ngIf="errorInForm" class="alert alert-danger">
+          {{errorInForm}}
+        </div> 
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" id="title" name="title" type="text" placeholder="" [(ngModel)]="formArticle.title">
+       </div> 
+        <div class="form-group">
+          <label for="abstract">Abstract</label>
+          <textarea class="form-control" id="abstract" name="abstract" type="text" placeholder="" [(ngModel)]="formArticle.abstract"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="article">Article</label>
+          <textarea class="form-control" id="article" name="article" type="text" placeholder="" [(ngModel)]="formArticle.article"></textarea>
+        </div>
+          <button type="submit" role="button" class="btn-primary">edit</button> 
+          <button (click)="resetAndHideArticleForm()" type="button" role="button" class="btn-primary">cancel</button> 
+      </form>     
+    </div> 
+    <div class="col-12 col-md-6">
+     <p>Created by: {{dbArt.author}}</p>
+     <div class="card card-primary">
+       <div class="card-block">
+         <h2 class="card-title" class="heading">Info </h2>
+         <p class="card-text"><b> Date :</b> {{dbArt.createdOn}}</p>
+         <p class="card-text"><b> Title:</b> {{dbArt.title}}</p>
+         <p class="card-text"><b> Abstract:</b> {{dbArt.abstract}}</p>
+         <p class="card-text"><b> Full Article:</b> {{dbArt.article}}</p>
+       </div>
+     </div>
+  </div>
+     
