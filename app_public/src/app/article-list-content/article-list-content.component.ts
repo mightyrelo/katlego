@@ -5,6 +5,7 @@ import { AuthenticationService } from '../authentication.service';
 import { ArticlesDataService } from '../articles-data.service';
 
 
+
 @Component({
   selector: 'app-article-list-content',
   templateUrl: './article-list-content.component.html',
@@ -19,7 +20,9 @@ export class ArticleListContentComponent implements OnInit {
     article: '',
     author: '',
     flaggedForDeletion: false,
-    abstract: ''
+    abstract: '',
+    createdOn: '',
+
    };
 
   public openForm : boolean = false;

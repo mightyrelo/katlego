@@ -5,4 +5,5 @@ export class Articles {
     article: string;
     flaggedForDeletion: boolean;
     abstract: string;
+    createdOn: string;
 }

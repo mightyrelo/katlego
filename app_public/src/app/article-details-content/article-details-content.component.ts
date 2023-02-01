@@ -19,9 +19,10 @@ export class ArticleDetailsContentComponent implements OnInit {
     _id: '',
     title: '',
     abstract: '',
-    author: null,
+    author: '',
     article: '',
     flaggedForDeletion: false,
+    createdOn: ''
   };
 
   public openForm : boolean = false;

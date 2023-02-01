@@ -29,14 +29,10 @@
       </form>     
     </div> 
     <div class="col-12 col-md-6">
-     <p>Created by: {{dbArt.author}}</p>
+     <p>Created by: {{dbArt.author}} on {{dbArt.createdOn | date: 'd MMMM  yyyy'}} at {{dbArt.createdOn | date: 'hh:mm'}} </p>
      <div class="card card-primary">
        <div class="card-block">
-         <h2 class="card-title" class="heading">Info </h2>
-         <p class="card-text"><b> Date :</b> {{dbArt.createdOn}}</p>
-         <p class="card-text"><b> Title:</b> {{dbArt.title}}</p>
-         <p class="card-text"><b> Abstract:</b> {{dbArt.abstract}}</p>
-         <p class="card-text"><b> Full Article:</b> {{dbArt.article}}</p>
+         <p class="card-text">{{dbArt.article}}</p>
        </div>
      </div>
   </div>
