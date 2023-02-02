@@ -2,7 +2,7 @@
    <div class="row">
      <div class="col-12">
       <div *ngFor="let contact of contacts" style="text-align: center">
-        <div style="font-size:1.7em;">
+        <div style="font-size:2.1em;">
           <p >
             <a class="space" href="{{contact.facebook}}"><i class="wide fa-brands fa-facebook"></i></a>
             <a class="space" href="{{contact.instagram}}"><i class="wide fa-brands fa-instagram"></i></a>
@@ -13,7 +13,7 @@
         <div>
           <p>
             <i class="wide fa-solid fa-house"></i><span style="font-size: 0.7em;" class="badge badge-pill badge-default">{{contact.address}}</span>
-            <i class="wide fa-solid fa-envelope"></i><span  style="font-size: 0.7em;" *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span>
+            <i class="wide fa-solid fa-envelope"></i><span style="font-size: 0.7em;" *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span>
             <i class="wide fa-solid fa-phone"></i><span style="font-size: 0.7em;" *ngFor="let phone of contact.cellphones" class="badge badge-warning">{{phone}}</span>
           </p>
         </div>  
