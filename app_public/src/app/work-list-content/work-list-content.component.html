@@ -49,7 +49,7 @@
    </div>
    <h4> <a routerLink="/works/{{work._id}}" class="heading">{{work.company}}</a>
     <small>&nbsp;
-      <a *ngIf="isLoggedIn()" (click)="setFlag(work._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <a *ngIf="isLoggedIn()" (click)="setFlag(work._id)" style="font-size: 0.8em" class="btn float-right" ><i class="fa-solid fa-trash"></i></a>
       <div *ngIf="isFlagged(work._id)">
         <button (click)="setOffFlag(work._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
         <button (click)="deleteWorks(work._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>

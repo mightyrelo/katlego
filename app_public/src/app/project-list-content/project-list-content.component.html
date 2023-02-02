@@ -57,27 +57,29 @@
    </div>
    <h4> <a routerLink="projects/{{project._id}}" class="heading" >{{project.name}}</a>
     <small>&nbsp;
-      <a *ngIf="isLoggedIn()" (click)="setFlag(project._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
+      <a *ngIf="isLoggedIn()" (click)="setFlag(project._id)" style="font-size: 0.8em" class="btn float-right" ><i class="fa-solid fa-trash"></i></a>
       <div *ngIf="isFlagged(project._id)">
         <button (click)="setOffFlag(project._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">cancel</button>
         <button (click)="deleteProjects(project._id)" style="font-size: 0.7em"  class="btn btn-primary float-right">are you sure?</button>
       </div>
     </small>
   </h4>
-  <p class=""><b>Description: </b>{{project.description}}</p>
+  <p class="">{{project.description}}</p>
     <small><a *ngIf="!isFlaggedForShow(project._id)" (click)="setShowFlag(project._id)" >show more</a> </small>
     <div *ngIf="isFlaggedForShow(project._id)" class="col-12 col-md-10">
       <p class="">{{project.descriptionFull}}</p>
       <small><a (click)="setOffShowFlag(project._id)" type="button" role="button">show less</a></small> 
     </div>
-  <p><b>Language: </b><span class="badge badge-pill badge-default">{{project.language}}</span></p>
-  <p><b>Duration: </b><span class="badge badge-pill badge-default">{{project.term}}</span></p>
+  <p><i class="fa-solid fa-pen"></i><span class="badge badge-pill badge-default">{{project.language}}</span></p>
+  <p><i class="fa-solid fa-clock"></i><span class="badge badge-pill badge-default">{{project.term}}</span></p>
   <div class="facilities">
-    <p><b>Concepts: </b><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
+    <p><i class="fa-solid fa-key"></i><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
   </div>
   <div class="facilities">
-    <p><b>Tools: </b><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
-    <p><b>Link: </b><span><a href="{{project.link}}">{{project.link}}</a></span></p>
-    <p><b>Github: </b><span><a href="{{project.github}}">{{project.github}}</a></span></p>
+    <p><i class="fa-solid fa-wrench"></i><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
+    <p style="text-align:center">
+      <span style="font-size:2.4em; margin:2%;"><a href="{{project.link}}"><i class="fa-solid fa-earth-americas"></i></a></span>
+      <span style="font-size:2.4em; margin:2%;"><a href="{{project.github}}"><i class="fa-brands fa-github"></i></a></span>
+    </p>
   </div>
 </div>

@@ -13,6 +13,7 @@
       </div> 
       <div class="form-group">
         <label for="address">Address</label>
+        
         <input class="form-control" id="address" name="address" type="text" placeholder="" [(ngModel)]="formContacts.address">
      </div> 
     <div class="form-group">
@@ -28,7 +29,7 @@
         <input class="form-control" id="twitter" name="twitter" type="text" placeholder="" [(ngModel)]="formContacts.twitter">
      </div> 
      <div class="form-group">
-      <label for="cellphones">Cellphones</label>
+      <label for="cellphones"><i class="fa-brands fa-twitter"></i></label>
       <input class="form-control" type="text" id="cellphones" name="cellphones" [(ngModel)]="formContacts.cellphones">
      </div> 
      <div class="form-group">
@@ -43,7 +44,7 @@
 <div *ngFor="let contact of contacts" class="card">
    <div class="card-block"> 
    </div>
-   <h4> <a routerLink="/contacts/{{contact._id}}" class="heading">Contact Details</a>
+   <h4> <a routerLink="/contacts/{{contact._id}}" class="heading">Contacts</a>
     <small>&nbsp;
       <a *ngIf="isLoggedIn()" (click)="setFlag(contact._id)" style="font-size: 0.8em" class="btn float-right" >delete</a>
       <div *ngIf="isFlagged(contact._id)">
@@ -52,15 +53,14 @@
       </div>
     </small>
   </h4>
-  <p><b>Address:     </b><span class="badge badge-pill badge-default">{{contact.address}}</span></p>
-  <p><b>Facebook:     </b><span class="badge badge-pill badge-default">{{contact.facebook}}</span></p>
-  <p><b>Instagram:    </b><span class="badge badge-pill badge-default">{{contact.instagram}}</span></p>
-  <p><b>Twitter:     </b><span class="badge badge-pill badge-default">{{contact.twitter}}</span></p>  
+  <p><i class="fa-solid fa-house"></i><span class="badge badge-pill badge-default">{{contact.address}}</span></p>
+  <p><i class="fa-brands fa-facebook"></i><span class="badge badge-pill badge-default">{{contact.facebook}}</span></p>
+  <p><i class="fa-brands fa-instagram"></i><span class="badge badge-pill badge-default">{{contact.instagram}}</span></p>
+  <p><i class="fa-brands fa-twitter"></i><span class="badge badge-pill badge-default">{{contact.twitter}}</span></p>  
   <div class="facilities">
-    <p><b>Emails:       </b><span *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span></p>
+    <p><i class="fa-solid fa-envelope"></i><span *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span></p>
   </div>
   <div class="facilities">
-    <p><b>Cell numbers:    </b><span *ngFor="let cellphone of contact.cellphones" class="badge badge-warning">{{cellphone}}</span></p>
+    <p><i class="fa-solid fa-phone"></i><span *ngFor="let cellphone of contact.cellphones" class="badge badge-warning">{{cellphone}}</span></p>
   </div>
-
 </div>
