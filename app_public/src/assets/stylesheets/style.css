@@ -118,3 +118,18 @@ h4 small {
   .heading {
     font-family: 'Lobster', cursive;
   }
+
+  .wide {
+    margin-right: 0.8%;
+    margin-left: 2.8%;
+  }
+
+  .top
+  {
+    margin-top: 5%;
+  }
+
+  .space 
+  {
+    margin-right: 5%;
+  }

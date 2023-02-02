@@ -70,13 +70,13 @@
       <p class="">{{project.descriptionFull}}</p>
       <small><a (click)="setOffShowFlag(project._id)" type="button" role="button">show less</a></small> 
     </div>
-  <p><i class="fa-solid fa-pen"></i><span class="badge badge-pill badge-default">{{project.language}}</span></p>
-  <p><i class="fa-solid fa-clock"></i><span class="badge badge-pill badge-default">{{project.term}}</span></p>
+  <p><i class="wide fa-solid fa-pen"></i><span class="badge badge-pill badge-default">{{project.language}}</span></p>
+  <p><i class="wide fa-solid fa-clock"></i><span class="badge badge-pill badge-default">{{project.term}}</span></p>
   <div class="facilities">
-    <p><i class="fa-solid fa-key"></i><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
+    <p><i class="wide fa-solid fa-key"></i><span *ngFor="let concept of project.concepts" class="badge badge-warning">{{concept}}</span></p>
   </div>
   <div class="facilities">
-    <p><i class="fa-solid fa-wrench"></i><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
+    <p><i class="wide fa-solid fa-wrench"></i><span *ngFor="let tool of project.tools" class="badge badge-warning">{{tool}}</span></p>
     <p style="text-align:center">
       <span style="font-size:2.4em; margin:2%;"><a href="{{project.link}}"><i class="fa-solid fa-earth-americas"></i></a></span>
       <span style="font-size:2.4em; margin:2%;"><a href="{{project.github}}"><i class="fa-brands fa-github"></i></a></span>

@@ -1,7 +1,25 @@
-<footer>
+<footer class="top">
    <div class="row">
      <div class="col-12">
-       <small>© ppApp - Mightyrelo Software 2023</small>
+      <div *ngFor="let contact of contacts" style="text-align: center">
+        <div style="font-size:1.7em;">
+          <p >
+            <a class="space" href="{{contact.facebook}}"><i class="wide fa-brands fa-facebook"></i></a>
+            <a class="space" href="{{contact.instagram}}"><i class="wide fa-brands fa-instagram"></i></a>
+            <a class="space" href="{{contact.twitter}}"><i class="wide fa-brands fa-twitter"></i></a>
+            <a class="space" href="{{contact.twitter}}"><i class="wide fa-brands fa-linkedin"></i></a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <i class="wide fa-solid fa-house"></i><span style="font-size: 0.7em;" class="badge badge-pill badge-default">{{contact.address}}</span>
+            <i class="wide fa-solid fa-envelope"></i><span  style="font-size: 0.7em;" *ngFor="let email of contact.emails" class="badge badge-warning">{{email}}</span>
+            <i class="wide fa-solid fa-phone"></i><span style="font-size: 0.7em;" *ngFor="let phone of contact.cellphones" class="badge badge-warning">{{phone}}</span>
+          </p>
+        </div>  
+      </div>
+         <small>© ppApp - Mightyrelo Software 2023</small>
       </div>
     </div>
 </footer>
+

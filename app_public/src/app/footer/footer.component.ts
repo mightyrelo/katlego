@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Contact } from '../contact';
+import { ContactDataService } from '../contact-data.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public contacts: Contact[];
 
-  ngOnInit() {
+  constructor(
+    private contactDataService: ContactDataService
+  ) { }
+
+  public readContacts(): void {
+    
+    this.contactDataService.readContacts()
+      .then((response) => {this.contacts = response.reverse();});
+  }
+
+  ngOnInit() :void {
+    this.readContacts();
   }
 
 }
