@@ -11,7 +11,11 @@ const PersonalSchema = mongoose.Schema({
     passions: [String],
     maritalStatus: String,
     userId: String,
-    nationality: String 
+    nationality: String,
+    technicalSkills: [String],
+    softSkills: [String],
+    title: String,
+    profession: String
 
 });
 

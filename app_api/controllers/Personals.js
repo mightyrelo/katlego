@@ -23,8 +23,12 @@ const personalsCreateOne = (req, res) => {
         nationality: req.body.nationality,
         race: req.body.race,
         maritalStatus: req.body.maritalStatus,
-        passport: req.body.passport,
-        license: req.body.licence
+        passportNo: req.body.passportNo,
+        licenseNo: req.body.licenceNo,
+        title: req.body.title,
+        technicalSkills: req.body.technicalSkills.split(','),
+        softSkills: req.body.softSkills.split(','),
+        profession: req.body.profession
     };
     Personal
      .create(formPersonal, (err, dbPersonal) => {

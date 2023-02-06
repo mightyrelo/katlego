@@ -13,7 +13,7 @@ export class PersonalsListComponent implements OnInit {
 
   public personals: Personals[];
 
-  public formPersonals = {
+  public formPersonals : Personals = {
     _id: '',
     name: '',
     gender: '',
@@ -25,8 +25,12 @@ export class PersonalsListComponent implements OnInit {
     userId: '',
     nationality: '',
     flaggedForDeletion: false,
-    passport: '',
-    license: '', 
+    passportNo: '',
+    licenseNo: '',
+    technicalSkills: [],
+    softSkills: [],
+    title: '',
+    profession: '' 
   };
 
   public openForm : boolean = false;
@@ -117,10 +121,15 @@ export class PersonalsListComponent implements OnInit {
     this.formPersonals.passions =  [];
     this.formPersonals.maritalStatus =  '';
     this.formPersonals.nationality =  '';
-    this.formPersonals.license =  '';
-    this.formPersonals.passport =  '';
+    this.formPersonals.licenseNo =  '';
+    this.formPersonals.passportNo =  '';
     this.openForm = false;
-    this.errorInForm = ''; 
+    this.errorInForm = '';
+    this.formPersonals.technicalSkills =  [];
+    this.formPersonals.softSkills =  [];
+    this.formPersonals.profession =  '';
+    this.formPersonals.title =  '';
+     
   }
 
   public deletePersonals(pId: string) : void{

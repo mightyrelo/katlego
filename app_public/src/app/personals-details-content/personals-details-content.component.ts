@@ -14,7 +14,7 @@ export class PersonalsDetailsContentComponent implements OnInit {
 
   @Input() dbPers : Personals
 
-  public formPersonals = {
+  public formPersonals : Personals = {
     _id: '',
     name: '',
     gender: '',
@@ -26,8 +26,12 @@ export class PersonalsDetailsContentComponent implements OnInit {
     userId: '',
     nationality: '',
     flaggedForDeletion: false,
-    passport: '',
-    license: '', 
+    passportNo: '',
+    licenseNo: '',
+    profession: '',
+    technicalSkills: [],
+    softSkills: [],
+    title: '' 
   };
 
   public openForm : boolean = false;
@@ -79,8 +83,14 @@ export class PersonalsDetailsContentComponent implements OnInit {
     this.formPersonals.passions =  [];
     this.formPersonals.maritalStatus =  '';
     this.formPersonals.nationality =  '';
+    this.formPersonals.licenseNo =  '';
+    this.formPersonals.passportNo =  '';
     this.openForm = false;
-    this.errorInForm = ''; 
+    this.errorInForm = '';
+    this.formPersonals.technicalSkills =  [];
+    this.formPersonals.softSkills =  [];
+    this.formPersonals.profession =  '';
+    this.formPersonals.title =  ''; 
   }
 
 

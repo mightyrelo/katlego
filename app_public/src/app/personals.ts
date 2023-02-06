@@ -10,6 +10,11 @@ export class Personals {
     userId: string;
     nationality: string;
     flaggedForDeletion: boolean;
-    passport: string;
-    license: string;  
+    passportNo: string;
+    licenseNo: string;
+    technicalSkills: string[];
+    softSkills: string[];
+    title: string;
+    profession: string;
+         
 }

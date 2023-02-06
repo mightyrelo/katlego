@@ -20,6 +20,14 @@
         <input class="form-control" id="gender" name="gender" type="text" placeholder="" [(ngModel)]="formPersonals.gender">
      </div> 
       <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" id="title" name="title" type="text" placeholder="" [(ngModel)]="formPersonals.title">
+     </div> 
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input class="form-control" id="profession" name="profession" type="text" placeholder="" [(ngModel)]="formPersonals.profession">
+     </div> 
+     <div class="form-group">
         <label for="idNo">ID No</label>
         <input class="form-control" id="idNo" name="idNo" type="text" placeholder="" [(ngModel)]="formPersonals.idNo">
      </div> 
@@ -33,11 +41,11 @@
      </div> 
      <div class="form-group">
       <label for="license">Driver's License No</label>
-      <input class="form-control" type="text" id="license" name="license" [(ngModel)]="formPersonals.license">
+      <input class="form-control" type="text" id="license" name="license" [(ngModel)]="formPersonals.licenseNo">
      </div>
      <div class="form-group">
       <label for="passport">Passport</label>
-      <input class="form-control" type="text" id="passport" name="passport" [(ngModel)]="formPersonals.passport">
+      <input class="form-control" type="text" id="passport" name="passport" [(ngModel)]="formPersonals.passportNo">
      </div> 
     <div class="form-group">
         <label for="race">Race</label>
@@ -50,6 +58,14 @@
     <div class="form-group">
         <label for="passions">Passions</label>
         <input class="form-control" id="passions" name="passions" type="text" placeholder="" [(ngModel)]="formPersonals.passions">
+     </div> 
+    <div class="form-group">
+        <label for="technicalSkills">Technical Skills</label>
+        <input class="form-control" id="technicalSkills" name="technicalSkills" type="text" placeholder="" [(ngModel)]="formPersonals.technicalSkills">
+     </div> 
+    <div class="form-group">
+        <label for="softSkills">Soft Skills</label>
+        <input class="form-control" id="softSkills" name="softSkills" type="text" placeholder="" [(ngModel)]="formPersonals.softSkills">
      </div> 
       <button type="submit" role="button" class="btn-primary">add</button> 
       <button (click)="resetAndHidePersonalForm()" type="button" role="button" class="btn-primary">cancel</button> 
