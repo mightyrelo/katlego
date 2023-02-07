@@ -24,9 +24,9 @@ const personalsCreateOne = (req, res) => {
         race: req.body.race,
         maritalStatus: req.body.maritalStatus,
         passportNo: req.body.passportNo,
-        licenseNo: req.body.licenceNo,
+        licenseNo: req.body.licenseNo,
         title: req.body.title,
-        technicalSkills: req.body.technicalSkills.split(','),
+        technicalSkills: req.body.technicalSkills.split(';'),
         softSkills: req.body.softSkills.split(','),
         profession: req.body.profession
     };

@@ -75,6 +75,20 @@
      </div>
      <div class="card card-primary">
       <div class="card-block">
+        <h2 class="card-title">Languages </h2>
+        <span *ngFor="let language of dbPers.languages" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{language}} </span>
+        &nbsp;
+      </div>
+   </div>
+   <div class="card card-primary">
+      <div class="card-block">
+        <h2 class="card-title">Passions </h2>
+        <span *ngFor="let passion of dbPers.passions" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{passion}} </span>
+        &nbsp;
+      </div>
+   </div>
+     <div class="card card-primary">
+      <div class="card-block">
         <h2 class="card-title">Technical Skills </h2>
         <span *ngFor="let skill of dbPers.technicalSkills" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{skill}} </span>
         &nbsp;
@@ -87,20 +101,7 @@
       &nbsp;
     </div>
  </div>
-     <div class="card card-primary">
-        <div class="card-block">
-          <h2 class="card-title">Languages </h2>
-          <span *ngFor="let language of dbPers.languages" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{language}} </span>
-          &nbsp;
-        </div>
-     </div>
-     <div class="card card-primary">
-        <div class="card-block">
-          <h2 class="card-title">Passions </h2>
-          <span *ngFor="let passion of dbPers.passions" class="badge badge-warning"> <i class="fa fa-check"> </i>&nbsp; {{passion}} </span>
-          &nbsp;
-        </div>
-     </div>
+
     </div>
     <div class="col-12 col-md-6 location-map">
       <div class="card card-primary">
